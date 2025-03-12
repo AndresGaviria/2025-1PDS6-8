@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.Modelos;
+using ConsoleApp1.Conexiones;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
@@ -34,3 +35,6 @@ var usuario2 = new Usuarios(
     true, 
     new TiposUsuarios(3, "Estudiante")
 );
+
+var conexionEf = new ConexionEF();
+conexionEf.ConexionBasica();
