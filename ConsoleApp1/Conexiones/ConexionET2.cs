@@ -14,12 +14,33 @@ namespace ConsoleApp1.Conexiones
             var conexion = new Conexion2();
             conexion.StringConnection = this.string_conexion;
 
-            var lista = conexion.Tipos.ToList();
+            var lista = conexion.Animales.ToList();
 
             foreach (var elemento in lista)
             {
-                Console.WriteLine(elemento.Id.ToString() + ", " + elemento.Nombre);
+                Console.WriteLine(elemento.Id.ToString() + ", " + 
+                    elemento.Codigo + ", " + 
+                    elemento.Nombre + ", " + 
+                    elemento.Tipo.ToString() + ", " + 
+                    elemento.Fecha.ToString() + ", " + 
+                    elemento.Activo.ToString());
             }
+        }
+
+        public void ConexionInsert()
+        {
+            var conexion = new Conexion2();
+            conexion.StringConnection = this.string_conexion;
+
+            var animal = new Animales();
+            animal.Codigo = "2315456";
+            animal.Nombre = "Pepe";
+            animal.Tipo = 2;
+            animal.Fecha = DateTime.Now;
+            animal.Activo = false;
+
+            conexion.Animales.Add(animal);
+            conexion.SaveChanges();
         }
     }
 
