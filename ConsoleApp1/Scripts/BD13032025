@@ -1,0 +1,14 @@
+CREATE DATABASE db_zoo;
+GO
+USE db_zoo;
+GO
+
+CREATE TABLE [Tipos] (
+	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[Nombre] NVARCHAR(50) UNIQUE NOT NULL,
+);
+
+INSERT INTO [Tipos] ([Nombre]) VALUES ('Canino');
+INSERT INTO [Tipos] ([Nombre]) VALUES ('Felino');
+
+SELECT * FROM [Tipos];

@@ -5,9 +5,9 @@ namespace ConsoleApp1.Conexiones
 {
     public class ConexionEF2
     {
-        private string string_conexion = "server=localhost;database=db_clase12032025;Integrated Security=True;TrustServerCertificate=true;";
-        // server=localhost;database=db_clase12032025;uid=sa;pwd=Clas3sPrO2024_!;TrustServerCertificate=true;
-        // server=localhost;database=db_clase12032025;Integrated Security=True;TrustServerCertificate=true;
+        private string string_conexion = "server=localhost;database=db_zoo;Integrated Security=True;TrustServerCertificate=true;";
+        // server=localhost;database=db_zoo;uid=sa;pwd=Clas3sPrO2024_!;TrustServerCertificate=true;
+        // server=localhost;database=db_zoo;Integrated Security=True;TrustServerCertificate=true;
 
         public void ConexionBasica()
         {
