@@ -12,3 +12,19 @@ INSERT INTO [Tipos] ([Nombre]) VALUES ('Canino');
 INSERT INTO [Tipos] ([Nombre]) VALUES ('Felino');
 
 SELECT * FROM [Tipos];
+
+
+CREATE TABLE [Animales] (
+	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[Codigo] NVARCHAR(50) UNIQUE NOT NULL,
+	[Nombre] NVARCHAR(50) NOT NULL,
+    [Tipo] INT NOT NULL REFERENCES [Tipos] ([Id]),
+    [Fecha] SMALLDATETIME NOT NULL,
+    [Activo] BIT NOT NULL,
+	[Caracteristicas] NVARCHAR(MAX) NULL,
+);
+
+INSERT INTO [Animales] ([Codigo],[Nombre],[Tipo],[Fecha],[Activo]) 
+VALUES ('4645321','Lulu',1,GETDATE(),1);
+
+SELECT * FROM [Animales];
