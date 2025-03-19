@@ -37,4 +37,5 @@ var usuario2 = new Usuarios(
 );
 
 var conexionEf = new ConexionEF3();
+conexionEf.ConexionInsert();
 conexionEf.ConexionBasica();

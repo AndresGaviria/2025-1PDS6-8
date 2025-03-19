@@ -14,7 +14,7 @@ namespace ConsoleApp1.Conexiones
             var conexion = new Conexion3();
             conexion.StringConnection = this.string_conexion;
 
-            var lista = conexion.Exportadores.ToList();
+            var lista = conexion.Zapatos.ToList();
 
             foreach (var elemento in lista)
             {
@@ -25,17 +25,26 @@ namespace ConsoleApp1.Conexiones
 
         public void ConexionInsert()
         {
-            var conexion = new Conexion2();
+            var conexion = new Conexion3();
             conexion.StringConnection = this.string_conexion;
 
-            var animal = new Animales();
-            animal.Codigo = "2315456";
-            animal.Nombre = "Pepe";
-            animal.Tipo = 2;
-            animal.Fecha = DateTime.Now;
-            animal.Activo = false;
+            var exportador = conexion.Exportadores
+                .FirstOrDefault(x => x.Nombre == "Coordinadora");
 
-            conexion.Animales.Add(animal);
+            if (exportador == null)
+                return;
+
+            var zapatos = new Zapatos();
+            zapatos.Codigo = "ZP-46565";
+            zapatos.Nombre = "Zapatilla";
+            zapatos.Cantidad = 2;
+            zapatos.Exportador = exportador!.Id;
+            zapatos.Marca = "Reebook";
+            zapatos.Talla = "45";
+            zapatos.Fecha = DateTime.Now;
+            zapatos.Activo = false;
+
+            conexion.Zapatos.Add(zapatos);
             conexion.SaveChanges();
         }
     }
