@@ -37,5 +37,3 @@ INSERT INTO [Zapatos] ([Codigo],[Nombre],[Cantidad],[Exportador],[Marca],[Talla]
 VALUES ('TN-564654','Nike 752', 10, 2,'Nike','39', GETDATE(), 1);
 
 SELECT * FROM [Zapatos];
-
---Prueba
