@@ -36,5 +36,5 @@ var usuario2 = new Usuarios(
     new TiposUsuarios(3, "Estudiante")
 );
 
-var conexionEf = new ConexionEF();
+var conexionEf = new ConexionEF3();
 conexionEf.ConexionBasica();
