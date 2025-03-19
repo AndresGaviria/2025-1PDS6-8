@@ -1,0 +1,39 @@
+CREATE DATABASE db_zapatos;
+GO
+USE db_zapatos;
+GO
+
+CREATE TABLE [Exportadores] (
+	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[Nombre] NVARCHAR(50) UNIQUE NOT NULL,
+	[Pais] NVARCHAR(50) NOT NULL,
+	[Direccion] NVARCHAR(300) NOT NULL,
+	[Telefono] NVARCHAR(20) NOT NULL,
+);
+
+INSERT INTO [Exportadores] ([Nombre],[Pais],[Direccion],[Telefono]) 
+VALUES ('Deprisa', 'Colombia', 'Calle 75 # 63 - 42 A Sur', '3002587569');
+INSERT INTO [Exportadores] ([Nombre],[Pais],[Direccion],[Telefono]) 
+VALUES ('Envia', 'Colombia', 'Ave 86 # 82 - 1', '3105689425');
+INSERT INTO [Exportadores] ([Nombre],[Pais],[Direccion],[Telefono]) 
+VALUES ('Coordinadora', 'Colombia', 'Carrera 2 # 17 - 38 Norte', '3007515642');
+
+SELECT * FROM [Exportadores];
+
+
+CREATE TABLE [Zapatos] (
+	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[Codigo] NVARCHAR(50) UNIQUE NOT NULL,
+	[Nombre] NVARCHAR(50) NOT NULL,
+    [Cantidad] INT NOT NULL,
+    [Exportador] INT NOT NULL REFERENCES [Exportadores] ([Id]),
+	[Marca] NVARCHAR(50) NOT NULL,
+	[Talla] NVARCHAR(10) NOT NULL,
+    [Fecha] SMALLDATETIME NOT NULL,
+    [Activo] BIT NOT NULL,
+);
+
+INSERT INTO [Zapatos] ([Codigo],[Nombre],[Cantidad],[Exportador],[Marca],[Talla],[Fecha],[Activo]) 
+VALUES ('TN-564654','Nike 752', 10, 2,'Nike','39', GETDATE(), 1);
+
+SELECT * FROM [Zapatos];
